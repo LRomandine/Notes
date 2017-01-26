@@ -1,2 +1,2 @@
-# Notes
-Random notes, hopefully someone else will find them useful
+# notes
+Collection of random notes, hopefully they help others
