@@ -11,16 +11,16 @@ Directions
 - Plug directly into header where a 5V and ground are next to each other.
  - On Raspberry pi 3 b a good example are pins 4 and 6
 
-## Not Controlled
+## Controlled
 Components
 - 5V 2 wire fan
 - S8050 NPN transistor
 
 Directions
 - NPN transistor has 3 legs: emitter, collector, and base
- - Emitter is negative/ground
- - Collector is positive
- - Base is the control (5V=on, 0v=Off)
+    - Emitter is negative/ground
+    - Collector is positive
+    - Base is the control (5V=on, 0v=Off)
 - Wire it up so that 
 ```
 5V ------> fan  -----> collector
