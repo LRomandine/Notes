@@ -32,6 +32,9 @@ Ground --> emitter
 ```
 #!/bin/bash
 
+# Add a line to /etc/rc.local like
+# /path/to/script.sh &
+
 # Setup the GPIO
 GPIO="18"
 echo "${GPIO}" > /sys/class/gpio/export
