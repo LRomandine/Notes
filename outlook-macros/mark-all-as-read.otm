@@ -1,0 +1,53 @@
+
+'Need to be part of "ThisOutlookSession"
+Sub MarkAllReadAndCleanV2()
+    'Dim Item As MailItem  'We need "Item" to not be statically typed because we get mailitems and calendar items
+    Debug.Print ("---------------")
+    'Mark all Inbox items as read
+    'This must be in a loop because for whatever reason one execution will not catch all the emails in threads /shrug
+    While Application.Session.GetDefaultFolder(olFolderInbox).Items.Restrict("[unread] = true").Count > 0
+        'Debug.Print ("--Inbox Loop")
+        For Each Item In Application.Session.GetDefaultFolder(olFolderInbox).Items.Restrict("[unread] = true")
+            'Debug.Print ("----Inbox Loop Item -- " & Item.Subject)
+            Item.UnRead = False
+            Item.Save
+        Next
+    Wend
+    'Walk the Inbox subfolders and mark as read
+    For Each Folder In Application.Session.GetDefaultFolder(olFolderInbox).Folders
+        'Debug.Print (Folder.Items.Restrict("[unread] = true").Count & " -- " & Folder.FolderPath)
+        While Folder.Items.Restrict("[unread] = true").Count > 0
+            'Debug.Print ("--Subfolder Loop")
+            For Each Item In Folder.Items.Restrict("[unread] = true")
+                'Debug.Print ("--Subfolder Loop Item -- " & Item.Subject)
+                Item.UnRead = False
+                Item.Save
+            Next
+        Wend
+    Next
+    'Mark all Deleted items as read
+    For Each Item In Application.Session.GetDefaultFolder(olFolderDeletedItems).Items.Restrict("[unread] = true")
+        Item.UnRead = False
+        Item.Save
+    Next
+    'Delete everything in the junk folder
+    For Each Item In Application.Session.GetDefaultFolder(olFolderJunk).Items.Restrict("[unread] = true")
+        Item.Delete
+    Next
+    'Mark the RSS folder as read
+    For Each Item In Application.Session.GetDefaultFolder(olFolderRssFeeds).Items.Restrict("[unread] = true")
+        Item.UnRead = False
+        Item.Save
+    Next
+    For Each Folder In Application.Session.GetDefaultFolder(olFolderRssFeeds).Folders
+        While Folder.Items.Restrict("[unread] = true").Count > 0
+            For Each Item In Folder.Items.Restrict("[unread] = true")
+                Item.UnRead = False
+                Item.Save
+            Next
+        Wend
+    Next
+End Sub
+
+
+
