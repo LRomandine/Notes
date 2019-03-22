@@ -5,7 +5,7 @@
 
 Sub MarkAllReadAndCleanV2()
     'Dim Item As MailItem  'We need "Item" to not be statically typed because we get mailitems and calendar items
-    Debug.Print ("---------------")
+    'Debug.Print ("---------------")
     'Mark all Inbox items as read
     'This must be in a loop because for whatever reason one execution will not catch all the emails in threads /shrug
     While Application.Session.GetDefaultFolder(olFolderInbox).Items.Restrict("[unread] = true").Count > 0
