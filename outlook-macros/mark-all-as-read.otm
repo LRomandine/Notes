@@ -1,5 +1,8 @@
+'Marks everything under your inbox and deleted items as read, empties your junk folder
 
-'Need to be part of "ThisOutlookSession"
+'Needs to be part of "ThisOutlookSession"
+
+
 Sub MarkAllReadAndCleanV2()
     'Dim Item As MailItem  'We need "Item" to not be statically typed because we get mailitems and calendar items
     Debug.Print ("---------------")
