@@ -1,3 +1,7 @@
+# Update
+[Google Music is dead](https://music.youtube.com/googleplaymusic)
+
+
 # Fix for google-musicmanager on CentOS 7
 There is a dependency issue for google-musicmanager-beta-1.0.467.4929-0.x86_64 on CentOS systems (I assume other Red Hat based systems are affected).
 
