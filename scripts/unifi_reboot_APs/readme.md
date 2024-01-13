@@ -21,12 +21,14 @@ Assuming you have already installed on-boot-script
  1. In your SSH session install this file
 ```
 cd /data/on_boot.d/
-wget 
+wget https://raw.githubusercontent.com/LRomandine/Notes/master/scripts/unifi_reboot_APs/15-reboot-aps.sh
 chmod +x 15-reboot-aps.sh
 # Execute now to enable the reboots
 ./15-reboot-aps.sh
+# Verify
+crontab -l
 ```
-Enable 
+
 
 ## Example cron entries this creates
 ```
