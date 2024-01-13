@@ -7,18 +7,18 @@
 # Install instructions
 Assuming you have already installed on-boot-script
 1. Enable SSH for devices with pre-shared keys
- 1. Log into Unifi Web Console
- 2. Go to Network app
- 3. Settings -> System -> Advanced
- 4. Enable "Device Authentication"
- 5. Set the username to "root"
- 6. Set a random password, we won't use it
- 7. SSH into your UDM Pro and generate SSH keys `ssh-keygen` and just hit enter for the passphrase
- 8. Get the contents of your SSH public key `cat /root/.ssh/id_rsa.pub`
- 9. Copy that line of text and paste it into web console where it says "Should start with 'ssh-rsa'" and give it a name like "UDMP root"
- 10. Save
+    1. Log into Unifi Web Console
+    2. Go to Network app
+    3. Settings -> System -> Advanced
+    4. Enable "Device Authentication"
+    5. Set the username to "root"
+    6. Set a random password, we won't use it
+    7. SSH into your UDM Pro and generate SSH keys `ssh-keygen` and just hit enter for the passphrase
+    8. Get the contents of your SSH public key `cat /root/.ssh/id_rsa.pub`
+    9. Copy that line of text and paste it into web console where it says "Should start with 'ssh-rsa'" and give it a name like "UDMP root"
+    10. Save
 2. On your UDM Pro install this file
- 1. In your SSH session install this file
+    1. In your SSH session install this file
 ```
 cd /data/on_boot.d/
 wget https://raw.githubusercontent.com/LRomandine/Notes/master/scripts/unifi_reboot_APs/15-reboot-aps.sh
