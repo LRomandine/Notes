@@ -29,6 +29,8 @@ while read IP; do
     echo "${COUNTER} 03 * * 1 root ssh -o StrictHostKeychecking=no ${IP} 'reboot' && echo \"\`date +'%Y-%m-%d %H:%M:%S'\` - Reboot ${IP}\" >> /var/log/reboots.log 2>&1" >> /tmp/rootcrontab
 done < /tmp/UAP-list-IPs
 
+cp /tmp/rootcrontab ${DATA_DIR}/cronjobs/reboot-aps
+
 # Install the new crontab will be done via script 25-add-cron-jobs.sh
 #    https://github.com/unifi-utilities/unifios-utilities/blob/main/on-boot-script/examples/udm-files/on_boot.d/25-add-cron-jobs.sh
 
