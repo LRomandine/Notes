@@ -20,7 +20,7 @@ while read line; do
   curl -s -X 'GET' \
   "http://localhost:8686/api/v1/album?artistId=${line}&includeAllArtistAlbums=true&apikey=${LIDARR_API_KEY}" \
   -H 'accept: text/json' > lidarr_temp_album.txt
-  cat lidarr_temp_album.txt | jq -cr ".[] | [.id, .statistics.trackCount]"|sed 's/\[\|\]//g' > lidarr_temp_album_ids.txt
+  cat lidarr_temp_album.txt | jq -cr ".[] | [.id, .statistics.trackFileCount]"|sed 's/\[\|\]//g' > lidarr_temp_album_ids.txt
   while read line2; do
     if [[ $(echo "${line2}"|tail -c 3) == ",0" ]];then
       ALBUM_ID=$(echo "${line2}"|awk -F',' '{print $1}')
