@@ -39,12 +39,12 @@ while read line; do
       if [[ $(tail -n 100 /var/lib/lidarr/logs/lidarr.txt|grep Error) != "" ]];then
         echo "            Error, retrying..."
         sed -i 's/Error/Eror/g' /var/lib/lidarr/logs/lidarr.txt
-        sleep 10
         curl -s -X 'POST' \
           "http://localhost:8686/api/v1/command?apikey=${LIDARR_API_KEY}" \
           -H 'accept: application/json' \
           -H 'Content-Type: application/json' \
           -d "{\"name\": \"RefreshAlbum\", \"albumId\": ${line2}}" >/dev/null 2>&1
+        sleep 10
       else
         LOOP="False"
       fi
